@@ -16,9 +16,13 @@ require("./services/passport");
 const authRouter=require("./routes/authRouter");
 const userRouter=require("./routes/userRouter");
 
-app.get("/",(req,res)=>{
-    res.json({"msg":"the server is working fine"});
-});
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static('client/build'));
+    const path=require('path');
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'clinet','build','index.html'));
+    })
+}
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
