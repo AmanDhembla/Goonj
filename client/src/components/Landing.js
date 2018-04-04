@@ -2,10 +2,6 @@ import React,{Component} from 'react';
 import '../css/landing.css';
 
 class Landing extends Component{
-    componentDidMount(){
-        var elem = document.querySelector('.parallax');
-        
-    }
     render(){
         return (
             <div>
@@ -20,7 +16,7 @@ class Landing extends Component{
                     </div>
                 </div>
                 
-                    <div className="parallax2"></div>
+                <div className="parallax2"></div>
                 
             </div>
         )

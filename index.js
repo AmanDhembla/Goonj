@@ -14,6 +14,7 @@ require("./models/User");
 require("./services/passport");
 //routers
 const authRouter=require("./routes/authRouter");
+const userRouter=require("./routes/userRouter");
 
 app.get("/",(req,res)=>{
     res.json({"msg":"the server is working fine"});
@@ -27,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth/google",authRouter);
+app.use("/api/user",userRouter);
 
 const PORT=process.env.PORT || 5000;
 
