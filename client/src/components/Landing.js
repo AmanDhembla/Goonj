@@ -5,7 +5,7 @@ class Landing extends Component{
     render(){
         return (
             <div>
-                <div className="parallax1"></div>
+                <div className="para1"></div>
                 <div className="section white">
                     <div className="row container">
                     <h2 className="header">Goonj</h2>
@@ -16,7 +16,7 @@ class Landing extends Component{
                     </div>
                 </div>
                 
-                <div className="parallax2"></div>
+                <div className="para2"></div>
                 
             </div>
         )
