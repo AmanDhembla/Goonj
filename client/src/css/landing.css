@@ -1,5 +1,5 @@
 .para1 {
-    background-image: url(../images/goonj1.jpg);
+    background-image: url(../goonj1.jpg);
     min-height: 500px; 
     background-attachment: fixed;
     background-position: center;
@@ -8,7 +8,7 @@
 }
 
 .para2 {
-    background-image: url(../images/goonj2.jpg);
+    background-image: url(../goonj2.jpg);
     min-height: 500px; 
     background-attachment: fixed;
     background-position: center;
