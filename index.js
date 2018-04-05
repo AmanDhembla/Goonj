@@ -16,13 +16,6 @@ require("./services/passport");
 const authRouter=require("./routes/authRouter");
 const userRouter=require("./routes/userRouter");
 
-if(process.env.NODE_ENV==="production"){
-    app.use(express.static('client/build'));
-    const path=require('path');
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'clinet','build','index.html'));
-    })
-}
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
@@ -33,6 +26,18 @@ app.use(passport.session());
 
 app.use("/auth/google",authRouter);
 app.use("/api/user",userRouter);
+
+if(process.env.NODE_ENV==='production'){
+    //express will serve up production assets
+    app.use(express.static('client/build'));
+  
+    //express will serve up index.html if no matching route is found
+    const path=require('path');
+    app.get('*',(req,res)=>{
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+    })
+  
+}
 
 const PORT=process.env.PORT || 5000;
 
