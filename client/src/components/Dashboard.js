@@ -1,6 +1,7 @@
 import React from 'react';
+import AddUser from './AddUser.js';
 export default ()=>{
     return (
-        <div>This is the dashboard page</div>
+        <AddUser />
     )
 }
