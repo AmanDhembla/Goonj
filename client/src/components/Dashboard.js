@@ -1,7 +1,7 @@
 import React from 'react';
 import AddUser from './AddUser.js';
-export default ()=>{
+export default (props)=>{
     return (
-        <AddUser />
+        <AddUser history= {props.history}/>
     )
 }

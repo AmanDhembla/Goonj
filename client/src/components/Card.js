@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button, Card, Row, Col } from 'materialize-css';
 
 export default ()=>{
   return (
     <div className="container">
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src={require("../css/goonj2.jpg")} alt="" />
+          <img className="activator" src={require("../css/components/goonj2.jpg")} alt="" />
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">
