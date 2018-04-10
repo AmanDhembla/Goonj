@@ -1,6 +1,7 @@
 import React from 'react';
-export default ()=>{
+import AddUser from './AddUser.js';
+export default (props)=>{
     return (
-        <div>This is the dashboard page</div>
+        <AddUser history= {props.history}/>
     )
 }
