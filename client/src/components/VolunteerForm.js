@@ -1,16 +1,19 @@
 import React from 'react';
-import {Row,Input} from 'react-materialize';
 export default class VolunteerForm extends React.Component{
 
   constructor(props){
     super(props);
 
     this.state={
-      category: "Ngo",
       first_name: "",
       last_name: "",
       email: "",
-      error: undefined,
+      gender: "",
+      city: "",
+      profession: "",
+      contact: "",
+      birth: "",
+      error: undefined
     };
   }
 
@@ -30,6 +33,26 @@ export default class VolunteerForm extends React.Component{
   onEmailChange=(e)=>{
     const email=e.target.value;
       this.setState(()=>({email}));
+  }
+  onGenderChange=(e)=>{
+    const gender=e.target.value;
+      this.setState(()=>({gender}));
+  }
+  onBirthChange=(e)=>{
+    const birth=e.target.value;
+      this.setState(()=>({birth}));
+  }
+  onCityChange=(e)=>{
+    const city=e.target.value;
+      this.setState(()=>({city}));
+  }
+  onProfessionChange=(e)=>{
+    const profession=e.target.value;
+      this.setState(()=>({profession}));
+  }
+  onContactChange=(e)=>{
+    const contact=e.target.value;
+      this.setState(()=>({contact}));
   }
 
   onSubmit=(e)=>{
@@ -53,12 +76,14 @@ export default class VolunteerForm extends React.Component{
 
   render(){
     return(
-        <div>
+      <div className="container">
+        <div className="register-form">
         <h3 className="form-title">Enter your details</h3>
           {this.state.error && <p className="add-error"> {this.state.error}</p>  }
         <form onSubmit={this.onSubmit}>
 
-          <div className="input-field">
+          <div className="row">
+          <div className="col s5 offset-s1 input-field">
           <input
             id="first Name"
             type="text"
@@ -69,7 +94,7 @@ export default class VolunteerForm extends React.Component{
       </div>
 
 
-        <div className="input-field">
+        <div className="col s5 offset-s1 input-field">
             <input
             id="last_name"
             type="text"
@@ -78,9 +103,10 @@ export default class VolunteerForm extends React.Component{
           />
           <label htmlFor="last_name">Last Name</label>
       </div>
+</div>
 
-
-        <div className="input-field">
+      <div className="row">
+        <div className="col s5 offset-s1 input-field">
             <input
             id="email"
             className="validate"
@@ -90,16 +116,59 @@ export default class VolunteerForm extends React.Component{
           />
           <label htmlFor="email">Email</label>
       </div>
-      <Row>
-    <Input s={12} type='select'
-         value={this.state.category}
-         onChange={this.onCategoryChange}
-         label="Materialize Select"
-        >
-      <option value='Ngo'>Ngo</option>
-      <option value='Volunteer'>Volunteer</option>
-    </Input>
-  </Row>
+      <div className="col s5 offset-s1 input-field">
+          <input
+          id="gender"
+          type="text"
+          value={this.state.gender}
+          onChange={this.onGenderChange}
+        />
+        <label htmlFor="gender">Gender</label>
+      </div>
+
+  </div>
+    <div className="row">
+      <div className="col s5 offset-s1 input-field">
+          <input
+          id="birth"
+          type="text"
+          value={this.state.birth}
+          onChange={this.onBirthChange}
+        />
+        <label htmlFor="birth">Date of Birth</label>
+    </div>
+    <div className="col s5 offset-s1 input-field">
+        <input
+        id="city"
+        type="text"
+        value={this.state.city}
+        onChange={this.onCityChange}
+      />
+      <label htmlFor="city">City</label>
+    </div>
+
+  </div>
+    <div className="row">
+      <div className="col s5 offset-s1 input-field">
+          <input
+          id="profession"
+          type="text"
+          value={this.state.profession}
+          onChange={this.onProfessionChange}
+        />
+        <label htmlFor="profession">Profession</label>
+    </div>
+    <div className="col s5 offset-s1 input-field">
+        <input
+        id="contact"
+        type="text"
+        value={this.state.contact}
+        onChange={this.onContactChange}
+      />
+      <label htmlFor="contact">Contact</label>
+    </div>
+
+  </div>
 
     <div className="field-button">
             <button className="button form-button">
@@ -108,6 +177,7 @@ export default class VolunteerForm extends React.Component{
           </div>
         </form>
       </div>
+    </div>
 
     )
   }

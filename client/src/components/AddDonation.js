@@ -1,12 +1,12 @@
 import React from 'react';
-import VolunteerForm from './VolunteerForm';
+import DonationForm from './DonationForm';
 import { connect } from 'react-redux';
 
 
-const AddVolunteer=(props)=>{
+const AddDonation=(props)=>{
   return(
     <div>
-    <VolunteerForm onSubmit={(volunteer)=>{
+    <DonationForm onSubmit={(event)=>{
       props.history.push('/');
     }}
        status= "add"
@@ -16,4 +16,4 @@ const AddVolunteer=(props)=>{
 );
 };
 
-export default connect()(AddVolunteer);
+export default connect()(AddDonation);
