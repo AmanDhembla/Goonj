@@ -22,7 +22,7 @@ class App extends Component {
                         <Header />
                         <Switch>
                         <Route path="/" component={()=>(<div><Landing /><Card /><Footer /></div>)} exact={true}/>
-                        <Route path="/profile" component={Dashboard}/>
+                        <Route path="/profile" component={Dashboard} exact={true}/>
                         <Route path="/add_ngo" component={AddNgo}/>
                         <Route path="/add_volunteer" component={AddVolunteer}/>
                         <Route path="/add_Event" component={AddEvent}/>

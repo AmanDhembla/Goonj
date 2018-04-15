@@ -13,6 +13,7 @@ class Header extends Component{
                     <li><a href="/auth/google">Login With Google</a></li>
                 );
             default:
+            console.log(this.props.auth);
                 return (
                     <li><a href="/api/user/logout">Logout</a></li>
                 );

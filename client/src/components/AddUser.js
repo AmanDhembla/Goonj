@@ -1,5 +1,5 @@
 import React from 'react';
-import AddUserForm from './AddUserForm';
+import AddUserForm from './details_form/AddUserForm';
 import { connect } from 'react-redux';
 
 
