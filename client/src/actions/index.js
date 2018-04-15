@@ -9,3 +9,15 @@ export const fetchUser=()=>{
         });
     }
 }
+
+export const submitSurvey=(values,history)=>{
+    console.log("hurrey",values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/user/profile',values);
+        dispatch({
+            type: 'FETCH_USER',
+            payload: res.data
+        });
+        history.push("/");
+    }
+}

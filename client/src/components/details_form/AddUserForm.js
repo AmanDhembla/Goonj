@@ -3,6 +3,8 @@ import '../../css/style.css';
 import {reduxForm,Field} from 'redux-form';
 import formField from './formField';
 import selectField from './selectField';
+import {withRouter} from 'react-router-dom';
+
 
 export const FIELDS =[
   {
@@ -30,9 +32,10 @@ class AddUser extends Component{
     )
   }
   render(){
+    console.log("yo yoscsjdbc ",this.props);
     return(
       <div className="container">
-        <form onSubmit={this.props.handleSubmit}>
+        <form onSubmit={this.props.handleSubmit((values)=>this.props.submitSurvey(values,this.props.history))}>
           {this.renderFields()}  
           <Field type="text" name="category" component={selectField} label="Category"/>     
           <button className="btn-flat green right">Next<i className="material-icons right">done</i></button>
@@ -64,4 +67,4 @@ const validate=(values)=>{
 export default reduxForm({
   form: 'AddUser',
   validate
-})(AddUser);
+})(withRouter(AddUser));

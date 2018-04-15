@@ -1,19 +1,16 @@
 import React from 'react';
 import AddUserForm from './details_form/AddUserForm';
 import { connect } from 'react-redux';
-
+import {submitSurvey} from "../actions";
 
 const AddUser=(props)=>{
+  console.log("here",props);
   return(
     <div>
-    <AddUserForm onSubmit={(User)=>{
-      props.history.push('/add_volunteer');
-    }}
-       status= "add"
-     />
+    <AddUserForm submitSurvey={props.submitSurvey} />
    </div>
 
 );
 };
 
-export default connect()(AddUser);
+export default connect(null,{submitSurvey})(AddUser);
