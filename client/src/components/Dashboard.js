@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import AddUser from './AddUser.js';
 import Profile from './profile.js';
+import AddVolunteer from './AddVolunteer';
 
 class Dashboard extends Component{
     renderContent(){
@@ -9,14 +10,14 @@ class Dashboard extends Component{
             case null:
                 return;
             default:
-                console.log(this.props.auth.firstname);
                 if(this.props.auth.firstname){
                     if(this.props.auth.volunteer && !this.props.auth.volunteerId){
-
+                        console.log("here");
+                        <AddVolunteer />
                     }else if(this.props.auth.ngo && !this.props.auth.ngoId){
-
+                        console.log("here1");
                     }else{
-                        
+                        console.log("here2");
                     }
                 }else{
                     return (

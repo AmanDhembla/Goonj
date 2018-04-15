@@ -1,16 +1,12 @@
 import React from 'react';
-import VolunteerForm from './VolunteerForm';
+import VolunteerForm from './volunteer_form/VolunteerForm';
 import { connect } from 'react-redux';
 
 
 const AddVolunteer=(props)=>{
   return(
     <div>
-    <VolunteerForm onSubmit={(volunteer)=>{
-      props.history.push('/');
-    }}
-       status= "add"
-     />
+      <VolunteerForm />
    </div>
 
 );

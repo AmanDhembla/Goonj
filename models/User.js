@@ -7,6 +7,8 @@ const userSchema=new Schema({
         type: String,
         default: ""
     },
+    lastname: String,
+    email: String,
     volunteer:{
         type:Boolean,
         default: false

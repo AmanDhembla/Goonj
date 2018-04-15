@@ -3,9 +3,10 @@ const passport=require("passport");
 const keys=require("./config/keys");
 const mongoose=require("mongoose");
 const cookieSession=require('cookie-session');
+const bodyParser=require('body-parser');
 
 const app=express();
-
+app.use(bodyParser.json());
 mongoose.connect(keys.mongoURI);
 
 //to load the schemas
