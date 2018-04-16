@@ -1,113 +1,67 @@
 import React from 'react';
-export default class Form4 extends React.Component{
+import {reduxForm,Field} from 'redux-form';
+import formField from './formField';
 
-  constructor(props){
-    super(props);
-
-    this.state={
-      registration_number: "",
-      identity_proof: "",
-      valid_from: "",
-      valid_to: "",
-      error: undefined
-    };
+export const FIELDS =[
+  {
+      name: "registration_number",
+      label: "Registration Number"
+  },
+  {
+      name:"identity_proof",
+      label:"Identity Proof"
+  },
+  {
+      name: "valid_from",
+      label:"Valid From"
+  },
+  {
+      name: "valid_to",
+      label:"Valid To"
   }
-
-  onRegistration_numberChange=(e)=>{
-    const registration_number= e.target.value;
-    this.setState(()=>({registration_number}));
-
+];
+class Form4 extends React.Component{
+  renderFields(){
+    return(
+      <div>
+          {FIELDS.map((field)=>{
+              return (<Field key={field.name} type="text" name={field.name} component={formField} label={field.label}/>);
+          })}
+      </div>
+    )
   }
-  onIdentity_proofChange=(e)=>{
-    const identity_proof= e.target.value;
-    this.setState(()=>({identity_proof}));
-  }
-  onValid_fromChange=(e)=>{
-      const valid_from=e.target.value;
-      this.setState(()=>({valid_from}));
-  }
-  onValid_toChange=(e)=>{
-    const valid_to=e.target.value;
-      this.setState(()=>({valid_to}));
-  }
-
-  onSubmit=(e)=>{
-    e.preventDefault();
-
-    if(!this.state.registration_number || !this.state.identity_proof){
-      this.setState(()=>({error: "Please provide all the options"}));
-    }
-    else{
-      this.setState(()=>({error: undefined}));
-      this.props.onSubmit({
-        registration_number: this.state.registration_number,
-        identity_proof: this.state.identity_proof,
-        valid_from: this.state.valid_from,
-        valid_to: this.state.valid_to
-
-      });
-    }
-  };
-
-
   render(){
     return(
       <div className="container">
-        <div className="register-form">
-          {this.state.error && <p className="add-error"> {this.state.error}</p>  }
-        <form onSubmit={this.onSubmit}>
-
-          <div className="input-field">
-          <input
-            id="registration_number"
-            type="text"
-            value={this.state.registration_number}
-            onChange={this.onRegistration_numberChange}
-          />
-          <label htmlFor="registration_number">Registration Number</label>
-      </div>
-
-
-        <div className="input-field">
-            <input
-            id="identity_proof"
-            type="text"
-            value={this.state.identity_proof}
-            onChange={this.onIdentity_proofChange}
-          />
-          <label htmlFor="identity_proof">Identity Proof</label>
-      </div>
-
-        <div className="row">
-        <div className="col s6 input-field">
-            <input
-            id="valid_from"
-            type="text"
-            value={this.state.valid_from}
-            onChange={this.onValid_formChange}
-          />
-          <label htmlFor="valid_from">Valid From</label>
-      </div>
-      <div className="col s6 input-field">
-          <input
-          id="valid_to"
-          type="text"
-          value={this.state.valid_to}
-          onChange={this.onValid_toChange}
-        />
-        <label htmlFor="valid_to">Valid to</label>
-    </div>
-    </div>
-
-    <div className="field-button">
-            <button className="button form-button">
-              Add User
-            </button>
-          </div>
+        <form onSubmit={this.props.handleSubmit(()=>{})}>
+          {this.renderFields()}
+          <button className="btn-flat green right">Next<i className="material-icons right">done</i></button>
         </form>
       </div>
-    </div>
-
     )
   }
 }
+
+const validate=(values)=>{
+  const errors={};
+    if(!values.registration_number){
+        errors.registration_number="you must provide the Registration number";
+    }
+    if(!values.identity_proof){
+        errors.identity_proof="you must provide the Identity Proof";
+    }
+
+    if(!values.valid_from){
+        errors.valid_from="you must provide the valid from date";
+    }
+    if(!values.valid_to){
+        errors.valid_to="you must provide the valid to date";
+    }
+
+    return errors;
+}
+
+export default reduxForm({
+  form: 'Form4',
+  validate
+})(Form4);

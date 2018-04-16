@@ -34,7 +34,7 @@ class Form1 extends React.Component{
   render(){
     return(
       <div className="container">
-        <form onSubmit={this.props.handleSubmit(()=>{})}>
+        <form onSubmit={this.props.handleSubmit((values)=>this.props.submitform1(values,this.props.history,this.props.onStepChange))}>
           {this.renderFields()}
           <button className="btn-flat green right">Next<i className="material-icons right">done</i></button>
         </form>

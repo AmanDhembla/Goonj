@@ -27,13 +27,7 @@ class AddNgo extends React.Component {
         return (
           <div>
             <Progress step={this.state.step} />
-            <Form1 onSubmit={(volunteer)=>{
-              this.onStateChange();
-              //props.history.push('/');
-
-            }}
-               step= {this.state.step}
-               />
+            <Form1 />
           </div>
         )
       case 2:

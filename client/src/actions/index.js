@@ -21,3 +21,7 @@ export const submitSurvey=(values,history)=>{
         history.push("/dashboard");
     }
 }
+
+export const submitform1=(values,history,step)=>{
+  console.log(step);
+}
