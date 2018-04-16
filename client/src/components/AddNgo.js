@@ -3,10 +3,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Progress from './Progress';
-import Form1 from './form1';
-import Form2 from './form2';
-import Form3 from './form3';
-import Form4 from './form4';
+import Form1 from './ngo_form/form1';
+import Form2 from './ngo_form/form2';
+import Form3 from './ngo_form/form3';
+import Form4 from './ngo_form/form4';
 class AddNgo extends React.Component {
   constructor(props){
     super(props);

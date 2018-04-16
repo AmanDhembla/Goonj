@@ -13,7 +13,9 @@ class Dashboard extends Component{
                 if(this.props.auth.firstname){
                     if(this.props.auth.volunteer && !this.props.auth.volunteerId){
                         console.log("here");
+                        return(
                         <AddVolunteer />
+                      );
                     }else if(this.props.auth.ngo && !this.props.auth.ngoId){
                         console.log("here1");
                     }else{
