@@ -13,6 +13,7 @@ mongoose.connect(keys.mongoURI);
 require("./models/User");
 require("./models/Volunteer");
 require("./models/Ngo");
+require("./models/Event");
 
 require("./services/passport");
 //routers
@@ -20,6 +21,7 @@ const authRouter=require("./routes/authRouter");
 const userRouter=require("./routes/userRouter");
 const volunteerRouter=require("./routes/volunteerRouter");
 const ngoRouter=require("./routes/ngoRouter");
+const eventRouter=require("./routes/eventRouter");
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
@@ -32,6 +34,7 @@ app.use("/auth/google",authRouter);
 app.use("/api/user",userRouter);
 app.use("/api/volunteer",volunteerRouter);
 app.use("/api/ngo",ngoRouter);
+app.use("/api/event",eventRouter);
 
 if(process.env.NODE_ENV==='production'){
     //express will serve up production assets
