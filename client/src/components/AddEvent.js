@@ -1,16 +1,12 @@
 import React from 'react';
-import EventForm from './EventForm';
+import EventForm from './events_form/EventForm';
 import { connect } from 'react-redux';
 
 
 const AddEvent=(props)=>{
   return(
     <div>
-    <EventForm onSubmit={(event)=>{
-      props.history.push('/');
-    }}
-       status= "add"
-     />
+    <EventForm/>
    </div>
 
 );
