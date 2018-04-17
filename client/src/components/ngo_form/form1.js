@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm,Field} from 'redux-form';
 import formField from './formField';
+import {withRouter} from 'react-router-dom';
 
 export const FIELDS =[
   {
@@ -34,9 +35,9 @@ class Form1 extends React.Component{
   render(){
     return(
       <div className="container">
-        <form onSubmit={this.props.handleSubmit((values)=>this.props.submitform1(values,this.props.history,this.props.onStepChange))}>
+        <form onSubmit={this.props.handleSubmit((values)=>this.props.saveNgo(values,this.props.history))}>
           {this.renderFields()}
-          <button className="btn-flat green right">Next<i className="material-icons right">done</i></button>
+          <button className="btn-flat green right" onClick={this.props.onStateChange}>Next<i className="material-icons right">done</i></button>
         </form>
       </div>
     )
@@ -66,4 +67,4 @@ const validate=(values)=>{
 export default reduxForm({
   form: 'Form1',
   validate
-})(Form1);
+})(withRouter(Form1));

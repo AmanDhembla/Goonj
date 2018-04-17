@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import AddUser from './AddUser.js';
 import Profile from './profile.js';
 import AddVolunteer from './AddVolunteer';
+import AddNgo from './AddNgo';
 
 class Dashboard extends Component{
     renderContent(){
@@ -16,10 +17,13 @@ class Dashboard extends Component{
                         return(
                         <AddVolunteer />
                       );
-                    }else if(this.props.auth.ngo && !this.props.auth.ngoId){
+                    }else if(this.props.auth.ngo && (!this.props.auth.ngoForm)){
                         console.log("here1");
+                        return(
+                            <AddNgo />
+                          );
                     }else{
-                        console.log("here2");
+                        console.log(!!this.props.auth.ngoId);
                     }
                 }else{
                     return (

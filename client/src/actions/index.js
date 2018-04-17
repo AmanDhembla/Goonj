@@ -22,7 +22,6 @@ export const submitSurvey=(values,history)=>{
 }
 
 export const saveVolunteer=(values,history)=>{
-    console.log(values);
     return async (dispatch)=>{
         const res=await axios.post('/api/volunteer',values);
         dispatch({
@@ -33,7 +32,15 @@ export const saveVolunteer=(values,history)=>{
     }
 }
 
-
-export const submitform1=(values,history,step)=>{
-  console.log(step);
+export const saveNgo=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/ngo',values);
+        dispatch({
+            type: 'FETCH_USER',
+            payload: res.data
+        });
+        history.push("/profile");
+    }
 }
+

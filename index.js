@@ -19,6 +19,7 @@ require("./services/passport");
 const authRouter=require("./routes/authRouter");
 const userRouter=require("./routes/userRouter");
 const volunteerRouter=require("./routes/volunteerRouter");
+const ngoRouter=require("./routes/ngoRouter");
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
@@ -30,6 +31,7 @@ app.use(passport.session());
 app.use("/auth/google",authRouter);
 app.use("/api/user",userRouter);
 app.use("/api/volunteer",volunteerRouter);
+app.use("/api/ngo",ngoRouter);
 
 if(process.env.NODE_ENV==='production'){
     //express will serve up production assets
