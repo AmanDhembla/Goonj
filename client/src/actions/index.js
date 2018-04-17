@@ -11,7 +11,6 @@ export const fetchUser=()=>{
 }
 
 export const submitSurvey=(values,history)=>{
-    console.log("hurrey",values);
     return async (dispatch)=>{
         const res=await axios.post('/api/user/profile',values);
         dispatch({
@@ -21,6 +20,19 @@ export const submitSurvey=(values,history)=>{
         history.push("/dashboard");
     }
 }
+
+export const saveVolunteer=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/volunteer',values);
+        dispatch({
+            type: 'FETCH_USER',
+            payload: res.data
+        });
+        history.push("/dashboard");
+    }
+}
+
 
 export const submitform1=(values,history,step)=>{
   console.log(step);

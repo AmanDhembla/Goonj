@@ -11,12 +11,13 @@ mongoose.connect(keys.mongoURI);
 
 //to load the schemas
 require("./models/User");
+require("./models/Volunteer");
 
 require("./services/passport");
 //routers
 const authRouter=require("./routes/authRouter");
 const userRouter=require("./routes/userRouter");
-
+const volunteerRouter=require("./routes/volunteerRouter");
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 app.use("/auth/google",authRouter);
 app.use("/api/user",userRouter);
+app.use("/api/volunteer",volunteerRouter);
 
 if(process.env.NODE_ENV==='production'){
     //express will serve up production assets

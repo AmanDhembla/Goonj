@@ -18,10 +18,12 @@ const userSchema=new Schema({
         default: false
     },
     volunteerId:{
-        
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'volunteer'
     },
     ngoId:{
-
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'ngo'
     }
 });
 
