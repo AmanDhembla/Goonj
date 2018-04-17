@@ -17,7 +17,7 @@ export const submitSurvey=(values,history)=>{
             type: 'FETCH_USER',
             payload: res.data
         });
-        history.push("/dashboard");
+        history.push("/profile");
     }
 }
 
@@ -29,7 +29,7 @@ export const saveVolunteer=(values,history)=>{
             type: 'FETCH_USER',
             payload: res.data
         });
-        history.push("/dashboard");
+        history.push("/profile");
     }
 }
 
