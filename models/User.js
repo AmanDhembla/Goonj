@@ -24,6 +24,10 @@ const userSchema=new Schema({
     ngoId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'ngo'
+    },
+    ngoForm:{
+        type:Boolean,
+        default: false
     }
 });
 

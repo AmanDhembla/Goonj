@@ -12,6 +12,7 @@ mongoose.connect(keys.mongoURI);
 //to load the schemas
 require("./models/User");
 require("./models/Volunteer");
+require("./models/Ngo");
 
 require("./services/passport");
 //routers
