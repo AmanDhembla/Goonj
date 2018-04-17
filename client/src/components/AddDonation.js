@@ -1,16 +1,12 @@
 import React from 'react';
-import DonationForm from './DonationForm';
+import DonationForm from './donation_form/DonationForm';
 import { connect } from 'react-redux';
 
 
 const AddDonation=(props)=>{
   return(
     <div>
-    <DonationForm onSubmit={(event)=>{
-      props.history.push('/');
-    }}
-       status= "add"
-     />
+    <DonationForm/>
    </div>
 
 );

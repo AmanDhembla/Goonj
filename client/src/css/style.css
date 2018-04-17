@@ -2,5 +2,6 @@
 @import './components/landing.css';
 @import './components/button.css';
 @import './components/addUser.css';
+@import './components/addDonation.css';
 @import './components/error.css';
 @import './components/registerProgress.css';

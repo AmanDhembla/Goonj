@@ -1,0 +1,6 @@
+#checkbox{
+  display: block;
+  border: 1px solid #9e9e9e;
+  opacity: inherit;
+  pointer-events: stroke;
+}

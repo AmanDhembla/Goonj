@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import AddNgo from './AddNgo';
 import AddVolunteer from './AddVolunteer';
 import AddEvent from './AddEvent';
+import AddDonation from './AddDonation';
 import {connect} from 'react-redux';
 import {fetchUser} from '../actions/index';
 import Footer from './Footer';
@@ -26,6 +27,7 @@ class App extends Component {
                         <Route path="/add_ngo" component={AddNgo}/>
                         <Route path="/add_volunteer" component={AddVolunteer}/>
                         <Route path="/add_Event" component={AddEvent}/>
+                        <Route path="/add_Donation" component={AddDonation}/>                        
                          </Switch>
                     </div>
                 </BrowserRouter>
