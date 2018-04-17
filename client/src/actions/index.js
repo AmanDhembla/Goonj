@@ -44,3 +44,14 @@ export const saveNgo=(values,history)=>{
     }
 }
 
+export const saveEvent=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/event',values);
+        dispatch({
+            type: 'FETCH_USER',
+            payload: res.data
+        });
+        history.push("/profile");
+    }
+}
