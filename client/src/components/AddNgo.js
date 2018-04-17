@@ -35,40 +35,26 @@ class AddNgo extends React.Component {
         return (
           <div>
             <Progress step={this.state.step} />
-            <Form2 onSubmit={(volunteer)=>{
-              this.onStateChange();
-              //props.history.push('/');
-
-            }}
-               step= {this.state.step}/>
+            <Form2 onStateChange={this.onStateChange} saveNgo={this.props.saveNgo} step= {this.state.step}/>
           </div>
         )
       case 3:
         return (
           <div>
             <Progress step={this.state.step} />
-            <Form3 onSubmit={(volunteer)=>{
-              this.onStateChange();
-              //props.history.push('/');
-
-            }}
-               step= {this.state.step}/>
+            <Form3 onStateChange={this.onStateChange} saveNgo={this.props.saveNgo} step= {this.state.step}/>
           </div>
         )
       case 4:
         return (
           <div>
             <Progress step={this.state.step} />
-            <Form4 onSubmit={(volunteer)=>{
-              this.props.history.push('/');
-            }}
-               step= {this.state.step}/>
+            <Form4 onStateChange={this.onStateChange} saveNgo={this.props.saveNgo} step= {this.state.step}/>
           </div>
         )
       default:
         return (
           <div>
-            Error
           </div>
         )
     }
