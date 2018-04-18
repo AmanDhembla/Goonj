@@ -4,7 +4,7 @@ import AddUser from './AddUser.js';
 import Profile from './profile.js';
 import AddVolunteer from './AddVolunteer';
 import AddNgo from './AddNgo';
-import {fetchNgo} from '../actions';
+import {fetchNgo,fetchVolunteer} from '../actions';
 
 class Dashboard extends Component{
     renderContent(){
@@ -27,7 +27,7 @@ class Dashboard extends Component{
                         if(this.props.auth.ngo){
                             {this.props.fetchNgo()}
                         }else{
-
+                            {this.props.fetchVolunteer()}
                         }
                     }
                 }else{
@@ -54,4 +54,4 @@ const mapConnectToState=(state)=>{
     }
 }
 
-export default connect(mapConnectToState,{fetchNgo})(Dashboard);
+export default connect(mapConnectToState,{fetchNgo,fetchVolunteer})(Dashboard);

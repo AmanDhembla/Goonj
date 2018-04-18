@@ -13,4 +13,9 @@ router.post("/",async (req,res)=>{
     res.send(user);
 })
 
+router.get("/",async (req,res)=>{
+    const volunteer=await Volunteer.findById(req.user.volunteerId);
+    res.send(volunteer);
+})
+
 module.exports=router;

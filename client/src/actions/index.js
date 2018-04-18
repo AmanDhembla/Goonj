@@ -21,6 +21,19 @@ export const submitSurvey=(values,history)=>{
     }
 }
 
+
+export const fetchVolunteer=()=>{
+    return async (dispatch)=>{
+        const res=await axios.get('/api/volunteer');
+        console.log(res);
+        dispatch({
+            type: 'FETCH_VOLUNTEER',
+            payload: res.data
+        });
+    }
+}
+
+
 export const saveVolunteer=(values,history)=>{
     return async (dispatch)=>{
         const res=await axios.post('/api/volunteer',values);
