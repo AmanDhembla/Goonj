@@ -3,11 +3,12 @@ const Schema=mongoose.Schema;
 
 const DonationSchema=new Schema({
     type: String,
-    amount: String,
+    description: String,
     collected: {
         type: Boolean,
         default: false
     },
+    pick_up_address: String,
     ngoId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'ngo'

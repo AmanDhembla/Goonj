@@ -4,11 +4,16 @@ var mongoose=require("mongoose");
 const Donation=mongoose.model("donation");
 
 router.post("/:ngoId",async (req,res)=>{
-    const donation=new Donation(req.body);
+    console.log("here i am ");
+    let donation=new Donation(req.body);
     donation.ngoId=req.params.ngoId;
-    donation.volunteerId=req.user.volunteerId;
+    if(req.body.anonymous){
+
+    }else{
+        donation.volunteerId=req.user.volunteerId;
+    } 
     donation=await donation.save();
-    res.send(donation);
+    res.send(req.user);
 })
 
 module.exports=router;
