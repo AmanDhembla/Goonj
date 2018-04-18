@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import AddUser from './AddUser.js';
-import Profile from './profile.js';
 import AddVolunteer from './AddVolunteer';
 import AddNgo from './AddNgo';
 import {fetchNgo,fetchVolunteer} from '../actions';

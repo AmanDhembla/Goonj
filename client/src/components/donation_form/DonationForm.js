@@ -31,8 +31,9 @@ class DonationForm extends React.Component{
     return(
       <div className="container">
         <form onSubmit={this.props.handleSubmit(()=>{})}>
-          {this.renderFields()}
           <Field type="text" name="type" component={selectField} label="Type"/>
+
+          {this.renderFields()}
           <div>
         <label htmlFor="anonymous">Anonymous</label>
         <div>
