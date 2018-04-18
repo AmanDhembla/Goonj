@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import Search from './search_form/Search';
+import {search} from '../actions';
 
 class Header extends Component{
     renderContent(){
@@ -27,14 +28,17 @@ class Header extends Component{
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     {this.renderContent()}
                 </ul>
+                {(this.props.auth && (this.props.auth.volunteerId||this.props.auth.ngoForm))?<Search search={this.props.search}/>:""}
                 </div>
             </nav>
         )
     }
 }
 
-export default connect((state,props)=>{
+const mapConnectToState=(state)=>{
     return {
-        auth: state.auth
+        auth: state.auth,
     }
-})(Header);
+}
+
+export default connect(mapConnectToState,{search})(Header);

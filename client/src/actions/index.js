@@ -101,3 +101,16 @@ export const saveDonation=(values,history)=>{
         history.push("/profile");
     }
 }
+
+//for search
+export const search=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/search',values);
+        dispatch({
+            type: 'SEARCH',
+            payload: res.data
+        });
+        history.push("/searchResults");
+    }
+}

@@ -19,11 +19,13 @@ router.route("/")
       if(err) console.log(err);
         return res.json(docs);
     });
-  }else{
+  }else if(req.body.type=="event"){
     Event.find({"name": req.body.name},function(err,docs){
       if(err) console.log(err);
         return res.json(docs);
     });
+  }else{
+    res.json({err:"invalid type"});
   }
 });
 
