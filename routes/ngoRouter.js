@@ -30,4 +30,10 @@ router.post("/",async (req,res)=>{
     }
 })
 
+
+router.get("/",async(req,res)=>{
+    const ngo=await Ngo.findById(req.user.ngoId);
+    res.send(ngo);
+})
+
 module.exports=router;

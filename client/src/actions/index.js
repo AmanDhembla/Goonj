@@ -32,6 +32,19 @@ export const saveVolunteer=(values,history)=>{
     }
 }
 
+export const fetchNgo=()=>{
+    return async (dispatch)=>{
+        const res=await axios.get('/api/ngo');
+        console.log(res);
+        dispatch({
+            type: 'FETCH_NGO',
+            payload: res.data
+        });
+    }
+}
+
+
+
 export const saveNgo=(values,history)=>{
     console.log(values);
     return async (dispatch)=>{
