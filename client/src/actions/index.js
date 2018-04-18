@@ -21,6 +21,7 @@ export const submitSurvey=(values,history)=>{
     }
 }
 
+//for volunteer
 
 export const fetchVolunteer=()=>{
     return async (dispatch)=>{
@@ -44,6 +45,8 @@ export const saveVolunteer=(values,history)=>{
         history.push("/profile");
     }
 }
+
+//for Ngo
 
 export const fetchNgo=()=>{
     return async (dispatch)=>{
@@ -70,6 +73,8 @@ export const saveNgo=(values,history)=>{
     }
 }
 
+//for Event
+
 export const saveEvent=(values,history)=>{
     console.log(values);
     return async (dispatch)=>{
@@ -79,5 +84,33 @@ export const saveEvent=(values,history)=>{
             payload: res.data
         });
         history.push("/profile");
+    }
+}
+
+
+//for donation
+
+export const saveDonation=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/donation/id',values);
+        dispatch({
+            type: 'FETCH_USER',
+            payload: res.data
+        });
+        history.push("/profile");
+    }
+}
+
+//for search
+export const search=(values,history)=>{
+    console.log(values);
+    return async (dispatch)=>{
+        const res=await axios.post('/api/search',values);
+        dispatch({
+            type: 'SEARCH',
+            payload: res.data
+        });
+        history.push("/searchResults");
     }
 }

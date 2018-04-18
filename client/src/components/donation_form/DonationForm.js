@@ -7,8 +7,8 @@ import {withRouter} from 'react-router-dom';
 
 export const FIELDS =[
   {
-      name: "quantity",
-      label: "Quantity"
+      name: "description",
+      label: "description"
   },
   {
       name: "pick_up_address",
@@ -30,11 +30,14 @@ class DonationForm extends React.Component{
   render(){
     return(
       <div className="container">
-        <form onSubmit={this.props.handleSubmit(()=>{})}>
+
+        <form onSubmit={this.props.handleSubmit((values)=>{this.props.saveDonation(values,this.props.history)})}>
+
           <Field type="text" name="type" component={selectField} label="Type"/>
 
           {this.renderFields()}
           <div>
+          {this.renderFields()}
         <label htmlFor="anonymous">Anonymous</label>
         <div>
           <Field
