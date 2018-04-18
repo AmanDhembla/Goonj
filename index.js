@@ -14,6 +14,7 @@ require("./models/User");
 require("./models/Volunteer");
 require("./models/Ngo");
 require("./models/Event");
+require("./models/Donation");
 
 require("./services/passport");
 //routers
@@ -22,6 +23,8 @@ const userRouter=require("./routes/userRouter");
 const volunteerRouter=require("./routes/volunteerRouter");
 const ngoRouter=require("./routes/ngoRouter");
 const eventRouter=require("./routes/eventRouter");
+const donationRouter=require("./routes/donationRouter");
+const searchRouter=require("./routes/searchRouter");
 
 app.use(cookieSession({
     maxAge: 30*24*60*60*1000,
@@ -35,6 +38,8 @@ app.use("/api/user",userRouter);
 app.use("/api/volunteer",volunteerRouter);
 app.use("/api/ngo",ngoRouter);
 app.use("/api/event",eventRouter);
+app.use("/api/donation",donationRouter);
+app.use("/api/search",searchRouter);
 
 if(process.env.NODE_ENV==='production'){
     //express will serve up production assets
