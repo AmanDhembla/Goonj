@@ -1,0 +1,30 @@
+#search_field{
+    width: 400px;
+    border-bottom-color: #343434;
+    margin-right: 20px;
+    color: #343434;
+}
+
+#search_selectdiv{
+    display: inline;
+}
+
+#search_select{
+    width: 200px;
+    display: inline;
+    background-color: #4CAF50;
+    border: none;
+    color: #343434;
+    border-radius: 5px;
+}
+
+#search_button{
+    height: 45px;
+    padding: 4.5px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+#search_icon{
+    line-height: 45px;
+    height: 45px;
+}
