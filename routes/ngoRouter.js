@@ -32,7 +32,7 @@ router.post("/",async (req,res)=>{
 
 
 router.get("/",async(req,res)=>{
-    const ngo=await Ngo.findById(req.user.ngoId);
+    const ngo=await Ngo.findById(req.user.ngoId).populate("events").populate("donations");
     res.send(ngo);
 })
 

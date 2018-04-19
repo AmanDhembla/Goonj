@@ -14,7 +14,7 @@ router.post("/",async (req,res)=>{
 })
 
 router.get("/",async (req,res)=>{
-    const volunteer=await Volunteer.findById(req.user.volunteerId);
+    const volunteer=await Volunteer.findById(req.user.volunteerId).populate("events").populate("donations");
     res.send(volunteer);
 })
 
