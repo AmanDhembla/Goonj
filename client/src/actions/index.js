@@ -80,7 +80,7 @@ export const saveEvent=(values,history)=>{
     return async (dispatch)=>{
         const res=await axios.post('/api/event',values);
         dispatch({
-            type: 'FETCH_USER',
+            type: 'FETCH_NGO',
             payload: res.data
         });
         history.push("/profile");
@@ -93,9 +93,9 @@ export const saveEvent=(values,history)=>{
 export const saveDonation=(values,history)=>{
     console.log(values);
     return async (dispatch)=>{
-        const res=await axios.post('/api/donation/id',values);
+        const res=await axios.post('/api/donation/5ad82b30a12614266348f0bf',values);
         dispatch({
-            type: 'FETCH_USER',
+            type: 'FETCH_VOLUNTEER',
             payload: res.data
         });
         history.push("/profile");
