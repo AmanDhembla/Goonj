@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import VolunteerDetails from './volunteerDetails.js';
 import VolLinkTab from './volLinkTab.js';
 import { BrowserRouter, Switch, Route,Link,NavLink} from 'react-router-dom';
-import AddEvent from '../AddEvent.js';
+import AddDonation from '../AddDonation.js';
 class VolunteerProfile extends React.Component{
 
   render(){
@@ -12,10 +12,10 @@ class VolunteerProfile extends React.Component{
       <div>
         <VolunteerDetails volunteer={this.props.volunteer} auth={this.props.auth}/>
         <VolLinkTab />
-        <h1>Events</h1>
-        <Link to="/add_Event">
+        <h1>Donations</h1>
+        <Link to="/add_Donation">
         <button className="button add-button">
-        Add Events
+        Add Donation
       </button>
     </Link>
       </div>
