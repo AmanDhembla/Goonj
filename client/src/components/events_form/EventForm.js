@@ -35,12 +35,14 @@ class EventForm extends React.Component{
   }
   render(){
     return(
+
       <div className="container">
         <form onSubmit={this.props.handleSubmit((values)=>this.props.saveEvent(values,this.props.history))}>
           {this.renderFields()}
           <button className="btn-flat green right">Next<i className="material-icons right">done</i></button>
         </form>
       </div>
+
     )
   }
 }
