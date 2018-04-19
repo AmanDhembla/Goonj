@@ -19,8 +19,16 @@ const ngoSchema=new Schema({
     registration_number: String,
     identity_proof: String,
     valid_form: String,
-    valid_to: String
-
+    valid_to: String,
+    donations:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"donation"
+    }],
+    events: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"event"
+    }]
+    
 });
 
 mongoose.model("ngo",ngoSchema);

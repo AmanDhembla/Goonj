@@ -7,7 +7,16 @@ const volunteerSchema=new Schema({
     city: String,
     experience: String,
     gender: String,
-    hobbies: String
+    hobbies: String,
+    donations:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"donation"
+    }],
+      
+    events:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'event'
+    }]
 });
 
 mongoose.model('volunteer',volunteerSchema);
